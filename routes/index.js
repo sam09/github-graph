@@ -24,17 +24,13 @@ router.post('/graph', function(req, res) {
 
 	request(options, function (error, response, body) {
   		if (!error && response.statusCode == 200 ) {
-  			res.writeHead(200, {'Content-Type': 'text/plain'});
-  			res.write("UserRepos\tStars\tForks\tWatchers\n")
-  			info = JSON.parse(body);
+  			 info = JSON.parse(body);
+  			var new_info = [];
   			for(var i =0 ; i<info.length; i++) {
-  				console.log(info[i]["name"]);
-  				res.write(info[i]["name"] + "\t");
-  				res.write(info[i]["stargazers_count"] + "\t");
-  				res.write(info[i]["forks_count"] + "\t");
-  				res.write(info[i]["watchers_count"] + "\n");	
+  				if(info[i]['fork'] == false )
+  					new_info.push(info[i]);
   			}
-  			res.end("\n");
+  			res.render('graph', {title: "Repo Stats", info: new_info });
   		}
   		if(error)
   			console.log("error");
