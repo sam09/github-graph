@@ -1,9 +1,8 @@
 extends layout
 
 block content
-  p Welcome to #{title}
-  form(action="graph", method="post")
-    p Enter Username
+  form(action="graph", method="post", class="pure-form", align="center")
+    label(for="username") Enter your Username
       input(type="text", id="username", name="username")
-    button Submit
+    button(type="submit", class="pure-button pure-button-primary") Submit
 
