@@ -15,3 +15,8 @@ A node JS project that fetches a user's public data from github using github API
 
 All contributions are welcome
 
+
+###License
+
+![GPL V3](https://raw.githubusercontent.com/harshasrinivas/cli-github/master/images/gpl.png)
+
